@@ -2,7 +2,7 @@
  Password Manager es un administrador de contraseñas seguro que le ayudará en la tarea de mantener sus credenciales seguras sin tener que memorizarlas todas.
 
  Pre-requisitos:
-    -Tener instalado MYSQL: Con este programa, se trabajará en MySQL. ( https://dev.mysql.com/downloads/installer/ )
+ 			-Tener instalado MYSQL: Con este programa, se trabajará en MySQL. ( https://dev.mysql.com/downloads/installer/ )
         * Para descargarlo en Windows, deberá acceder a la siguiente página y escoger la opción más adecuada para su equipo, y proceder a la instalación.
         * En caso de ser una distriución linux, escoja una de las 3 opciónes que aparecen en la página dependiento del administrador de paquetes que su distribución tenga. 
     -Tener instalado Python: El programa está escrito en el lenguaje Python, por lo que necesita instalarlo para que su equipo sea capaz de ejecutarlo. (https://www.python.org/downloads/)
