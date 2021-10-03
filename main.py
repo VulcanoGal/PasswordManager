@@ -11,5 +11,22 @@ while True:
 			5º Eliminar credenciales
 			6º Salir
 			""")
+		opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
+		if opc == '1':
+			print("opc1")
+		elif opc == '2':
+			print("opc2")
+		elif opc == '3':
+			print("opc3")
+		elif opc == '4':
+			print("opc4")
+		elif opc == '5':
+			print("opc5")
+		elif opc == '6':
+			print("Salir")
+			break
+		else:
+		 print("No ha introducido un número, vuelva a intentarlo de nuevo")
 	except:
 		print("Ha ocurrido un error")
+		op= '?'
