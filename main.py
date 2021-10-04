@@ -1,28 +1,28 @@
 import mysql.connector
 print('¡Hola, Bienvenido a Password Manager!')
+##def masterlogin(masterpasswd):
+#	i=0
+#	while i < 3:
+#		masterpasswd = input("Introduzca la contraseña maestra para entrar al gestor")
+#		i = i + 1
+#		if masterpasswd=="Contraseña":
+#			print("Contraseña correcta")
+#		else:
+#			print("Contraseña Incorrecta, intentos restantes:", i)
+#			if    i == 3 :
+#				print("Ha fallado 3 veces, se le ha denegado el acceso")
+#				break
 
-def masterlogin(masterpasswd):
-	i=0
-	while i < 3:
-		masterpasswd = input("Introduzca la contraseña maestra para entrar al gestor")
-		i = i + 1
-		if masterpasswd=="Contraseña":
-			print("Contraseña correcta")
-		else:
-			print("Contraseña Incorrecta, intentos restantes:", i)
-			if    i == 3 :
-				print("Ha fallado 3 veces, se le ha denegado el acceso")
-				break
+#def login1(masterpasswd)
+#	if (len(masterpasswd) == 0)
+
+#	else
 
 
-
-
-
-
+PMDB = mysql.connector.connect(host = 'localhost', database='PasswordManagerDB', user='PasswordManager', password='abc123.abc123.')
 
 while True:
 	try:
-		#PMDB = mysql.connector.connect(host = "")
 		print("""
 					---- Menú ----
 			1º Introducir unas credenciales nuevas
