@@ -1,7 +1,28 @@
 import mysql.connector
 print('¡Hola, Bienvenido a Password Manager!')
+
+def masterlogin(masterpasswd):
+	i=0
+	while i < 3:
+		masterpasswd = input("Introduzca la contraseña maestra para entrar al gestor")
+		i = i + 1
+		if masterpasswd=="Contraseña":
+			print("Contraseña correcta")
+		else:
+			print("Contraseña Incorrecta, intentos restantes:", i)
+			if    i == 3 :
+				print("Ha fallado 3 veces, se le ha denegado el acceso")
+				break
+
+
+
+
+
+
+
 while True:
 	try:
+		#PMDB = mysql.connector.connect(host = "")
 		print("""
 					---- Menú ----
 			1º Introducir unas credenciales nuevas
@@ -12,21 +33,21 @@ while True:
 			6º Salir
 			""")
 		opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
-		if opc == "1":
+		if opc == 1:
 			print("opc1")
-		elif opc == "2":
+		elif opc == 2:
 			print("opc2")
-		elif opc == "3":
+		elif opc == 3:
 			print("opc3")
-		elif opc == "4":
+		elif opc == 4:
 			print("opc4")
-		elif opc == "5":
+		elif opc == 5:
 			print("opc5")
-		elif opc == "6":
+		elif opc == 6:
 			print("Salir")
 			break
 		else:
-		 print("No ha introducido un número, vuelva a intentarlo de nuevo")
+		 print("No ha introducido un número que se corresponda con las opciones, vuelva a intentarlo de nuevo")
 	except:
 		print("Ha ocurrido un error")
 		break
