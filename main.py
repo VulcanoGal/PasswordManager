@@ -17,9 +17,13 @@ print('¡Hola, Bienvenido a Password Manager!')
 #	if (len(masterpasswd) == 0)
 
 #	else
+MasterUser = ''
+MasterContra = ''
+while MasterUser == '' or MasterContra == '':
+	MasterUser = str(input("Introduzca el nombre de usuario de la BBDD [Base de Datos] \n"))
+	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
 
-
-PMDB = mysql.connector.connect(host = 'localhost', database='PasswordManagerDB', user='PasswordManager', password='abc123.abc123.')
+PMDB = mysql.connector.connect(host = 'localhost', database='PasswordManagerDB', user=MasterUser, password=MasterContra)
 
 while True:
 	try:
