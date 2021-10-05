@@ -20,7 +20,8 @@ print('¡Hola, Bienvenido a Password Manager!')
 MasterUser = ''
 MasterContra = ''
 MasterDB = ''
-while MasterUser == '' or MasterContra == '' or MasterDB == '':
+#while MasterUser == '' or MasterContra == '' or MasterDB == '':
+while (MasterUser and MasterContra and MasterDB) == '':
 	MasterUser = input("Introduzca el nombre de usuario de la BBDD [Base de Datos] \n")
 	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
 	MasterDB = input("Introduzca o nome da BBDD creada [Base de Datos] \n")
