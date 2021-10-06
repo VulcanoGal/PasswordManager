@@ -25,7 +25,10 @@ while (MasterUser and MasterContra and MasterDB) == '':
 	MasterUser = input("Introduzca el nombre de usuario de la BBDD [Base de Datos] \n")
 	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
 	MasterDB = input("Introduzca o nome da BBDD creada [Base de Datos] \n")
-PMDB = mysql.connector.connect(host = 'localhost', database='PasswordManagerDB', user=MasterUser, password=MasterContra)
+PMDB = mysql.connector.connect(host = 'localhost', database= MasterDB, user=MasterUser, password=MasterContra)
+PMcursor = PMDB.cursor()
+checkDB = PMcursor.execute("SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'MasterDB' ")
+
 
 while True:
 	try:
