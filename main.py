@@ -32,41 +32,41 @@ PMDB.close()
 PMcursor.close()
 PMDB = mysql.connector.connect(host = 'localhost', database= 'PasswordManagerDB',  user=MasterUser, password=MasterContra)
 PMcursor = PMDB.cursor()
-PMcursor.execute(" SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'MasterTable';")
+PMcursor.execute("SELECT COUNT(*) FROM information_schema.tables WHERE table_name=MasterTable ;", (MasterTable,))
 checkTB = PMcursor.fetchone()
-if checkTB >= 1:
-	print ("Ya existe esa tabla")
-else:
-	print ("Non existe")
+if checkTB[0] == 0:
+	print ("Esa tabla non existe, quere creala?")
 	#PMcursor.execute("""CREATE TABLE mastertable (Tipo INT NOT NULL,PRIMARY KEY (Tipo)) ;""")
-
-while True:
-	try:
-		print("""
+elif checkTB[0] == 1:
+	while True:
+		try:
+			print("""
 					---- Menú ----
-			1º Introducir unas credenciales nuevas
-			2º Consultar credenciales por sitio
-			3º Consultar credenciales por correo electrónico
-			4º Consultar credenciales por usuario
-			5º Eliminar credenciales
-			6º Salir
-			""")
-		opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
-		if opc == 1:
-			print("opc1")
-		elif opc == 2:
-			print("opc2")
-		elif opc == 3:
-			print("opc3")
-		elif opc == 4:
-			print("opc4")
-		elif opc == 5:
-			print("opc5")
-		elif opc == 6:
-			print("Salir")
+				1º Introducir unas credenciales nuevas
+				2º Consultar credenciales por sitio
+				3º Consultar credenciales por correo electrónico
+				4º Consultar credenciales por usuario
+				5º Eliminar credenciales
+				6º Salir
+				""")
+			opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
+			if opc == 1:
+				print("opc1")
+			elif opc == 2:
+				print("opc2")
+			elif opc == 3:
+				print("opc3")
+			elif opc == 4:
+				print("opc4")
+			elif opc == 5:
+				print("opc5")
+			elif opc == 6:
+				print("Salir")
+				break
+			else:
+			 print("No ha introducido un número que se corresponda con las opciones, vuelva a intentarlo de nuevo")
+		except:
+			print("Ha ocurrido un error")
 			break
-		else:
-		 print("No ha introducido un número que se corresponda con las opciones, vuelva a intentarlo de nuevo")
-	except:
-		print("Ha ocurrido un error")
-		break
+else:
+	print ("Hai demasiadas coincidencias co escrito, probe a escribir algo máis concreto por favor")
