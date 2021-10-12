@@ -27,7 +27,7 @@ while (MasterUser and MasterContra) == '':
 	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
 PMDB = mysql.connector.connect(host = 'localhost', database= 'PasswordManagerDB',  user=MasterUser, password=MasterContra)
 PMcursor = PMDB.cursor()
-checkDB = PMcursor.execute("CREATE DATABASE IF NOT EXISTS PasswordManagerDB1;")
+checkDB = PMcursor.execute("CREATE DATABASE IF NOT EXISTS PasswordManagerDB;")
 print(checkDB)
 
 
