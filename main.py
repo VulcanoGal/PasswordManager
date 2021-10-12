@@ -34,15 +34,11 @@ PMDB = mysql.connector.connect(host = 'localhost', database= 'PasswordManagerDB'
 PMcursor = PMDB.cursor()
 PMcursor.execute(" SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'MasterTable';")
 checkTB = PMcursor.fetchone()
-print (checkTB)
 if checkTB >= 1:
 	print ("Ya existe esa tabla")
 else:
 	print ("Non existe")
-	#PMcursor.execute("""CREATE TABLE mastertable (
-  	#						Tipo INT NOT NULL,
-  	#						PRIMARY KEY (Tipo)) ;""")
-#
+	#PMcursor.execute("""CREATE TABLE mastertable (Tipo INT NOT NULL,PRIMARY KEY (Tipo)) ;""")
 
 while True:
 	try:
