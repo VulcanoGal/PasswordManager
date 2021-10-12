@@ -25,14 +25,24 @@ while (MasterUser and MasterContra and MasterTable) == '':
 	MasterUser = input("Introduzca el nombre de usuario de la BBDD [Base de Datos] \n")
 	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
 	MasterTable = input("Introduzca el nombre que tiene / va a tener la tabla donde se guardará sus contraseñas  \n")
-PMDB = mysql.connector.connect(host = 'localhost', database= 'PasswordManagerDB',  user=MasterUser, password=MasterContra)
+PMDB = mysql.connector.connect(host = 'localhost', database= 'sys',  user=MasterUser, password=MasterContra)
 PMcursor = PMDB.cursor()
 PMcursor.execute("CREATE DATABASE IF NOT EXISTS PasswordManagerDB;")
-PMcursor.execute("SHOW TABLES LIKE 'MasterTable';")
+PMDB.close()
+PMcursor.close()
+PMDB = mysql.connector.connect(host = 'localhost', database= 'PasswordManagerDB',  user=MasterUser, password=MasterContra)
+PMcursor = PMDB.cursor()
+PMcursor.execute(" SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'MasterTable';")
 checkTB = PMcursor.fetchone()
-if checkTB:
-	
-
+print (checkTB)
+if checkTB >= 1:
+	print ("Ya existe esa tabla")
+else:
+	print ("Non existe")
+	#PMcursor.execute("""CREATE TABLE mastertable (
+  	#						Tipo INT NOT NULL,
+  	#						PRIMARY KEY (Tipo)) ;""")
+#
 
 while True:
 	try:
