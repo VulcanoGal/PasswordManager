@@ -1,30 +1,14 @@
 import mysql.connector
 print('¡Hola, Bienvenido a Password Manager!')
-##def masterlogin(masterpasswd):
-#	i=0
-#	while i < 3:
-#		masterpasswd = input("Introduzca la contraseña maestra para entrar al gestor")
-#		i = i + 1
-#		if masterpasswd=="Contraseña":
-#			print("Contraseña correcta")
-#		else:
-#			print("Contraseña Incorrecta, intentos restantes:", i)
-#			if    i == 3 :
-#				print("Ha fallado 3 veces, se le ha denegado el acceso")
-#				break
-
-#def login1(masterpasswd)
-#	if (len(masterpasswd) == 0)
-
-#	else
 MasterUser = ''
 MasterContra = ''
 MasterTable = ''
-#while MasterUser == '' or MasterContra == '' or MasterDB == '':
-while (MasterUser and MasterContra and MasterTable) == '':
+#MasterUser and MasterContra and MasterTable and  MasterDB
+while (MasterUser and MasterContra and MasterTable ) == '':
 	MasterUser = input("Introduzca el nombre de usuario de la BBDD [Base de Datos] \n")
 	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
 	MasterTable = input("Introduzca el nombre que tiene / va a tener la tabla donde se guardará sus contraseñas  \n")
+	#MasterDB = input("Introduzca el nombre que la base de datos a la cual quieres entrar  \n")
 PMDB = mysql.connector.connect(host = 'localhost', database= 'sys',  user=MasterUser, password=MasterContra)
 PMcursor = PMDB.cursor()
 PMcursor.execute("CREATE DATABASE IF NOT EXISTS PasswordManagerDB;")
@@ -36,7 +20,7 @@ PMcursor.execute("SELECT COUNT(*) FROM information_schema.tables WHERE table_nam
 checkTB = PMcursor.fetchone()
 if checkTB[0] == 0:
 	print ("Esa tabla non existe, quere creala?")
-	#PMcursor.execute("""CREATE TABLE mastertable (Tipo INT NOT NULL,PRIMARY KEY (Tipo)) ;""")
+	#PMcursor.execute("""CREATE TABLE '"+ MasterTable +"' (Tipo INT NOT NULL,PRIMARY KEY (Tipo)) ;""")
 elif checkTB[0] == 1:
 	while True:
 		try:
