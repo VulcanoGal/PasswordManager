@@ -32,7 +32,7 @@ PMDB.close()
 PMcursor.close()
 PMDB = mysql.connector.connect(host = 'localhost', database= 'PasswordManagerDB',  user=MasterUser, password=MasterContra)
 PMcursor = PMDB.cursor()
-PMcursor.execute("SELECT COUNT(*) FROM information_schema.tables WHERE table_name=MasterTable ;", (MasterTable,))
+PMcursor.execute("SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '"+ MasterTable +"' ;")
 checkTB = PMcursor.fetchone()
 if checkTB[0] == 0:
 	print ("Esa tabla non existe, quere creala?")
