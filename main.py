@@ -1,27 +1,33 @@
+#Importamos o conector MySQL para que este script poida comunicarse co server MySQL que instalamos previamente
 import mysql.connector
 print('¡Hola, Bienvenido a Password Manager!')
 MasterUser = ''
 MasterContra = ''
 MasterTable = ''
-#MasterUser and MasterContra and MasterTable and  MasterDB
+#Bucle para non permitir que as variables estén vacías
 while (MasterUser and MasterContra and MasterTable ) == '':
 	MasterUser = input("Introduzca el nombre de usuario de la BBDD [Base de Datos] \n")
 	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
 	MasterTable = input("Introduzca el nombre que tiene / va a tener la tabla donde se guardará sus contraseñas  \n")
 	#MasterDB = input("Introduzca el nombre que la base de datos a la cual quieres entrar  \n")
+#Facemos unha primeira conexión a unha BBDD creada por defecto dende o principio, para así crear ( xa sexa por primeira vez, 
+#ou porque se precise [función por añadir]) unha nova BBDD na cal se gardarán os contrasinais cos seus servicios e usuarios relacionados
 PMDB = mysql.connector.connect(host = 'localhost', database= 'sys',  user=MasterUser, password=MasterContra)
 PMcursor = PMDB.cursor()
 PMcursor.execute("CREATE DATABASE IF NOT EXISTS PasswordManagerDB;")
 PMDB.close()
 PMcursor.close()
+# Cerramos conexión para entrar xa agora ca nova BBDD
 PMDB = mysql.connector.connect(host = 'localhost', database= 'PasswordManagerDB',  user=MasterUser, password=MasterContra)
 PMcursor = PMDB.cursor()
 PMcursor.execute("SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '"+ MasterTable +"' ;")
 checkTB = PMcursor.fetchone()
 if checkTB[0] == 0:
+	#Damoslle ao usuario a opción de crear unha nova tabla en caso de que el queira, e a opción de non, en caso de que se equivocase escribindo
 	print ("Esa tabla non existe, quere creala?")
 	#PMcursor.execute("""CREATE TABLE '"+ MasterTable +"' (Tipo INT NOT NULL,PRIMARY KEY (Tipo)) ;""")
 elif checkTB[0] == 1:
+	#Bucle como menú no cal manexamos a BBDD
 	while True:
 		try:
 			print("""
@@ -53,4 +59,6 @@ elif checkTB[0] == 1:
 			print("Ha ocurrido un error")
 			break
 else:
+	#Para evitar múltiples coincidencias e inconvenientes que poida ocasionar, pediráselle ao usuario que sexa máis específico co nome
+	# ca fin de garantizar un pouco de privacidade
 	print ("Hai demasiadas coincidencias co escrito, probe a escribir algo máis concreto por favor")
