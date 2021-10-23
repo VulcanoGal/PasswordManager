@@ -10,4 +10,5 @@
    La primera vez que se ejecute el script, le pedirá que escriba una contraseña maestra la cual será necesaria a partir de ese momento para entrar en el programa. 
    El programa guarda sus contraseñas al igual que su nombre de usuario, nombre y enlace de las páginas o servicios a utilizar, para que sea más facil buscar y/o filtrar.
    Todos esos datos serán guardados en una BBDD local, la cual no tendrá acceso a internet, y además como medida de protección, las contraseñas serán hasheadas dentro de la BBDD, para evitar que cualquiera pueda descubrirlas.
+
 [MYSQL]: <https://dev.mysql.com/downloads/mysql/>
