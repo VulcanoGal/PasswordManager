@@ -25,7 +25,7 @@ checkTB = PMcursor.fetchone()
 if checkTB[0] == 0:
 	#Damoslle ao usuario a opción de crear unha nova tabla en caso de que el queira, e a opción de non, en caso de que se equivocase escribindo
 	print ("Esa tabla non existe, quere creala?")
-	#PMcursor.execute("""CREATE TABLE '"+ MasterTable +"' (Tipo INT NOT NULL,PRIMARY KEY (Tipo)) ;""")
+	PMcursor.execute("""CREATE TABLE """+ MasterTable +""" (Tipo INT NOT NULL,PRIMARY KEY (Tipo)) ;""")
 elif checkTB[0] == 1:
 	#Bucle como menú no cal manexamos a BBDD
 	while True:

@@ -21,9 +21,15 @@
       sudo apt install software-properties-common
       sudo add-apt-repository ppa:deadsnakes/ppa
       sudo apt install python3.x
-      python3.x --version
    ```
-   
+  -openSUSE (zypper)
+   ```sh
+      sudo zypper ar http://download.opensuse.org/repositories/devel:/languages:/python:/Factory/openSUSE_12.2/devel:languages:python:Factory.repo
+   ```
+   -Manjaro/Arch Linux (pacman)
+   ```sh
+      sudo pacman -S python
+   ```
 
 
 [MYSQL]: <https://dev.mysql.com/downloads/mysql/>
