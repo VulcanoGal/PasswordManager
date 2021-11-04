@@ -28,6 +28,7 @@ checkTB = PMcursor.fetchone()
 while True:
 	if checkTB[0] == 0:
 		#Damoslle ao usuario a opción de crear unha nova tabla en caso de que el queira, e a opción de non, en caso de que se equivocase escribindo
+		#
 		opc = int( input ("Esa tabla non existe, quere creala? Pulse 1 para continuar, pulse calquera outro número para saír")[0:1])
 		if opc == 1:
 			print ("Vaise crear a nova tabla: ")
