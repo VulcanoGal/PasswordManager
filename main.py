@@ -19,11 +19,12 @@ while True:
 	print("""
 			---- Menú ----
 		1º Introducir unas credenciales nuevas
-		2º Consultar credenciales por sitio
+		2º Consultar credenciales por Servicio
 		3º Consultar credenciales por correo electrónico
-		4º Consultar credenciales por usuario
+		4º Consultar credenciales por Usuario
 		5º Eliminar credenciales
-		6º Salir
+		6º Modificar credenciales
+		7º Salir
 		""")
 	opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
 	if opc == 1:
@@ -42,6 +43,9 @@ while True:
 		print("opc5")
 		library.clearWindow
 	elif opc == 6:
+		print("opc6")
+		library.clearWindow
+	elif opc == 7:
 		print("Salir")
 		library.clearWindow
 		break
