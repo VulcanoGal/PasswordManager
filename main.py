@@ -6,12 +6,13 @@ import library
 print('¡Hola, Bienvenido a Password Manager!')
 MasterUser = ''
 MasterContra = ''
-MasterTable = ''
+MasterDB = ''
 #Bucle para no permitir que las variables estén vacías
-while (MasterUser and MasterContra and MasterTable ) == '':
+while (MasterUser and MasterContra and MasterDB) == '':
 	MasterUser = input("Introduzca el nombre de usuario de la BBDD [Base de Datos] \n")
 	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
 	MasterDB = input("Introduzca el nombre que tiene / va a tener la BBDD donde se guardará sus contraseñas  \n")
+
 
 #Accedemos a nuestra librería de funciones para crear una nueva tabla
 library.createDB(MasterDB,MasterUser,MasterContra)
@@ -29,9 +30,11 @@ while True:
 	opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
 	if opc == 1:
 		print("opc1")
+		library.addnew()
 		library.clearWindow
 	elif opc == 2:
 		print("opc2")
+		library.filter
 		library.clearWindow
 	elif opc == 3:
 		print("opc3")

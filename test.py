@@ -1,6 +1,5 @@
 import library
-a = input("Usuario a crear:")
-b = input("Contraseña:")
-c = input("Usuario BBDD root:")
-d = input("Contraseña da BBDD:")
-library.createUser(a,b,c,d)
+a = input("BBDD a crear:")
+b = input("Usuario BBDD root:")
+c = input("Contraseña da BBDD:")
+library.createDB(a,b,c)
