@@ -1,5 +1,5 @@
-import library
+import menu
 a = input("BBDD a crear:")
 b = input("Usuario BBDD root:")
 c = input("Contraseña da BBDD:")
-library.createDB(a,b,c)
+menu.createDB(a,b,c)

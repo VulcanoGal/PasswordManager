@@ -1,7 +1,7 @@
 #Importamos el conector MySQL para que este script pueda comunicarse con el server MySQL que instalamos previamente, junto con otras librerías necesarias para mantener limpio
 # y legible este código
 
-import library
+import menu,query
 
 print('¡Hola, Bienvenido a Password Manager!')
 MasterUser = ''
@@ -15,7 +15,7 @@ while (MasterUser and MasterContra and MasterDB) == '':
 
 
 #Accedemos a nuestra librería de funciones para crear una nueva tabla
-library.createDB(MasterDB,MasterUser,MasterContra)
+menu.DBstuff.createDB(MasterDB,MasterUser,MasterContra)
 while True:
 	print("""
 			---- Menú ----
@@ -30,28 +30,32 @@ while True:
 	opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
 	if opc == 1:
 		print("opc1")
-		library.addnew()
-		library.clearWindow
+		query.addnew()
+		menu.clearWindow
 	elif opc == 2:
 		print("opc2")
-		library.filter
-		library.clearWindow
+		query.filter()
+		menu.clearWindow
 	elif opc == 3:
 		print("opc3")
-		library.clearWindow
+		query.filter()
+		menu.clearWindow
 	elif opc == 4:
 		print("opc4")
-		library.clearWindow
+		query.filter()
+		menu.clearWindow
 	elif opc == 5:
 		print("opc5")
-		library.clearWindow
+		query.delete()
+		menu.clearWindow
 	elif opc == 6:
 		print("opc6")
-		library.clearWindow
+		query.mod()
+		menu.clearWindow
 	elif opc == 7:
 		print("Salir")
-		library.clearWindow
+		menu.clearWindow
 		break
 	else:
 		print("No ha introducido un número que se corresponda con las opciones, vuelva a intentarlo de nuevo")
-		library.clearWindow
+		menu.clearWindow
