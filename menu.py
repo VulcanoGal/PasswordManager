@@ -1,7 +1,7 @@
 import mysql.connector,os
 
 def start():
-    PMDB = mysql.connector.connect(host = 'localhost', database= 'Paco13245',  user='root', password='abc123..', port=33060)
+    PMDB = mysql.connector.connect(host = 'localhost', database= 'passwdmgrdb',  user='root', password='abc123.', port=3306)
     return PMDB
 
 
@@ -24,7 +24,9 @@ def createDB(a):
 
 def clearWindow():
     if os.name == "posix":
+        checkClean = input("Presiona Intro para continuar:")
         os.system ("clear")
     elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+        checkClean = input("Presiona Intro para continuar:")
         os.system ("cls")
     
