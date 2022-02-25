@@ -84,9 +84,11 @@ def delete():
 
         c = input("Introduzca el nombre de ese usuario: ")
         if a and b and c is not None:
-            q4 = ("DELETE FROM passworddbclient WHERE Servicio = %s and Email = %s and Usuario = %s")
-            values = a, b, c
-            conn1(q4,values)
+            q4 = ("DELETE FROM passworddbclient WHERE Servicio = %s and Email = %s and Usuario = %s", (a, b, c,))
+            conn = menu.start()
+            cursor = conn.cursor()
+            cursor.execute ( * q4)
+            conn.commit()
             exit
         else:
             print("Error")

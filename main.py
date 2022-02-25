@@ -19,21 +19,27 @@ while True:
 		""")
 	opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
 	if opc == 1:
+		menu.clearWindow()
 		query.addnew()
 		menu.clearWindow()
 	elif opc == 2:
+		menu.clearWindow()
 		query.filter1()
 		menu.clearWindow()
 	elif opc == 3:
+		menu.clearWindow()
 		query.filter2()
 		menu.clearWindow()
 	elif opc == 4:
+		menu.clearWindow()
 		query.filter3()
 		menu.clearWindow()
 	elif opc == 5:
+		menu.clearWindow()
 		query.delete()
 		menu.clearWindow()
 	elif opc == 6:
+		menu.clearWindow()
 		#query.mod()
 		menu.clearWindow()
 	elif opc == 7:
@@ -41,5 +47,6 @@ while True:
 		menu.clearWindow()
 		break
 	else:
+		menu.clearWindow()
 		print("No ha introducido un número que se corresponda con las opciones, vuelva a intentarlo de nuevo")
 		menu.clearWindow()

@@ -1,7 +1,7 @@
 import mysql.connector,os
 
 def start():
-    PMDB = mysql.connector.connect(host = 'localhost', database= 'passwdmgrdb',  user='root', password='abc123.', port=3306)
+    PMDB = mysql.connector.connect(host = 'localhost', database= 'PasswdMgrDB',  user='root', password='abc123.', port=3306)
     return PMDB
 
 
