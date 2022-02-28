@@ -124,7 +124,6 @@ def mod():
             cursor = conn.cursor()
             cursor.execute( * qcheck)
             cursor.fetchall()
-            print(cursor.rowcount)
             if cursor.rowcount != 1:
                 print("Error, no hay una entrada en la BBDD que coincida con lo introducido, vuelva a intentarlo ")
                 exit
