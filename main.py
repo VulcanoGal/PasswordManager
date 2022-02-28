@@ -8,7 +8,7 @@ print('¡Hola, Bienvenido a Password Manager!')
 #menu.createDB()
 while True:
 	print("""
-			---- Menú ----
+		--------------------- Menú ---------------------
 		1º Introducir unas credenciales nuevas
 		2º Consultar credenciales por Servicio
 		3º Consultar credenciales por correo electrónico
@@ -40,7 +40,7 @@ while True:
 		menu.clearWindow()
 	elif opc == 6:
 		menu.clearWindow()
-		#query.mod()
+		query.mod()
 		menu.clearWindow()
 	elif opc == 7:
 		print("Salir")
