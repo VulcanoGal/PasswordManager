@@ -5,7 +5,7 @@ import menu, query
 
 print('¡Hola, Bienvenido a Password Manager!')
 #Accedemos a nuestra librería de funciones para crear una nueva tabla
-#menu.createDB()
+menu.createDB()
 while True:
 	print("""
 		--------------------- Menú ---------------------
@@ -25,15 +25,15 @@ while True:
 		menu.clearWindow()
 	elif opc == 2:
 		menu.clearfast()
-		query.filter1()
+		query.services()
 		menu.clearWindow()
 	elif opc == 3:
 		menu.clearfast()
-		query.filter2()
+		query.emails()
 		menu.clearWindow()
 	elif opc == 4:
 		menu.clearfast()
-		query.filter3()
+		query.users()
 		menu.clearWindow()
 	elif opc == 5:
 		menu.clearfast()
