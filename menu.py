@@ -21,6 +21,13 @@ def createDB(a):
         PMDB.close()
         PMcursor.close()
 
+def clearfast():
+    if os.name == "posix":
+        os.system ("clear")
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+        os.system ("cls")
+    
+
 
 def clearWindow():
     if os.name == "posix":

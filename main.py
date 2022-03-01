@@ -16,30 +16,31 @@ while True:
 		5º Eliminar credenciales
 		6º Modificar credenciales
 		7º Salir
+		------------------------------------------------
 		""")
 	opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
 	if opc == 1:
-		menu.clearWindow()
+		menu.clearfast()
 		query.addnew()
 		menu.clearWindow()
 	elif opc == 2:
-		menu.clearWindow()
+		menu.clearfast()
 		query.filter1()
 		menu.clearWindow()
 	elif opc == 3:
-		menu.clearWindow()
+		menu.clearfast()
 		query.filter2()
 		menu.clearWindow()
 	elif opc == 4:
-		menu.clearWindow()
+		menu.clearfast()
 		query.filter3()
 		menu.clearWindow()
 	elif opc == 5:
-		menu.clearWindow()
+		menu.clearfast()
 		query.delete()
 		menu.clearWindow()
 	elif opc == 6:
-		menu.clearWindow()
+		menu.clearfast()
 		query.mod()
 		menu.clearWindow()
 	elif opc == 7:
@@ -47,6 +48,6 @@ while True:
 		menu.clearWindow()
 		break
 	else:
-		menu.clearWindow()
+		menu.clearfast()
 		print("No ha introducido un número que se corresponda con las opciones, vuelva a intentarlo de nuevo")
 		menu.clearWindow()

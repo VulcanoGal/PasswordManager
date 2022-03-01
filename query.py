@@ -1,5 +1,4 @@
-import getpass, menu, re
-from tkinter import PIESLICE
+import getpass, menu, re, encriptacion
 from prettytable import PrettyTable
 pattern_email = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 tabla = PrettyTable()
@@ -32,7 +31,7 @@ def conn2(query, values):
         if cursor.rowcount >= 1:
             tabla.field_names = ["Página Web o Servicio", "Correo Electrónico", "Nombre de Usuario", "Contraseña", "Tipo Servicio"]
             for fila in res:
-                tabla.add_row([fila[0], fila[1], fila[2], fila[3], fila[4]])
+                tabla.add_row([fila[0], fila[1], fila[2], encriptacion.decrypt(fila[3]), fila[4]])
             
             print(tabla)
             tabla.clear_rows()
@@ -55,8 +54,9 @@ def addnew():
     C3 = input("Introduzca el nombre del usuario: ")
     C4 = getpass.getpass("Introduzca la contraseña correspondiente a " + C3 + " en "+ C1)
     if (C0 and C1 and C2 and C3 and C4) is not None:
-        q1 = ("INSERT INTO PasswordDBClient (Servicio, Email, Usuario, Contraseña, TipoServicio) VALUES (%s, %s, %s, %s, %s)", (C1,C2,C3,C4,C0))
+        q1 = ("INSERT INTO PasswordDBClient (Servicio, Email, Usuario, Contraseña, TipoServicio) VALUES (%s, %s, %s, %s, %s)", (C1,C2,C3,encriptacion.encrypt(C4),C0))
         conn1(q1)
+        #print(q1)
 
 
 def filter1():
@@ -135,7 +135,7 @@ def mod():
                 C3 = input("Introduzca el nombre del usuario: ")
                 C4 = getpass.getpass("Introduzca la contraseña correspondiente a " + C3 + " en "+ C1)
                 if (C0 and C1 and C2 and C3 and C4) is not None:
-                    q6 = ("UPDATE PasswordDBClient SET Servicio = %s, Email = %s, Usuario = %s, Contraseña = %s, TipoServicio = %s WHERE Servicio = %s and Usuario = %s", (C1,C2,C3,C4,C0,M0,M1))
+                    q6 = ("UPDATE PasswordDBClient SET Servicio = %s, Email = %s, Usuario = %s, Contraseña = %s, TipoServicio = %s WHERE Servicio = %s and Usuario = %s", (C1,C2,C3,encriptacion.encrypt(C4),C0,M0,M1))
                     conn1(q6) 
                     exit
                 else:
