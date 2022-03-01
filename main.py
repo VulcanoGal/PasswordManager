@@ -1,50 +1,53 @@
 #Importamos el conector MySQL para que este script pueda comunicarse con el server MySQL que instalamos previamente, junto con otras librerías necesarias para mantener limpio
 # y legible este código
 
-import library
+import menu, query
 
 print('¡Hola, Bienvenido a Password Manager!')
-MasterUser = ''
-MasterContra = ''
-MasterTable = ''
-#Bucle para no permitir que las variables estén vacías
-while (MasterUser and MasterContra and MasterTable ) == '':
-	MasterUser = input("Introduzca el nombre de usuario de la BBDD [Base de Datos] \n")
-	MasterContra = input("Introduzca la contraseña del usuario de la BBDD [Base de Datos] \n")
-	MasterDB = input("Introduzca el nombre que tiene / va a tener la BBDD donde se guardará sus contraseñas  \n")
-
 #Accedemos a nuestra librería de funciones para crear una nueva tabla
-library.createDB(MasterDB,MasterUser,MasterContra)
+menu.createDB()
 while True:
 	print("""
-			---- Menú ----
+		--------------------- Menú ---------------------
 		1º Introducir unas credenciales nuevas
-		2º Consultar credenciales por sitio
+		2º Consultar credenciales por Servicio
 		3º Consultar credenciales por correo electrónico
-		4º Consultar credenciales por usuario
+		4º Consultar credenciales por Usuario
 		5º Eliminar credenciales
-		6º Salir
+		6º Modificar credenciales
+		7º Salir
+		------------------------------------------------
 		""")
 	opc = int(input("Introduzca uno de los siguientes números para escoger una opción \n"))
 	if opc == 1:
-		print("opc1")
-		library.clearWindow
+		menu.clearfast()
+		query.addnew()
+		menu.clearWindow()
 	elif opc == 2:
-		print("opc2")
-		library.clearWindow
+		menu.clearfast()
+		query.services()
+		menu.clearWindow()
 	elif opc == 3:
-		print("opc3")
-		library.clearWindow
+		menu.clearfast()
+		query.emails()
+		menu.clearWindow()
 	elif opc == 4:
-		print("opc4")
-		library.clearWindow
+		menu.clearfast()
+		query.users()
+		menu.clearWindow()
 	elif opc == 5:
-		print("opc5")
-		library.clearWindow
+		menu.clearfast()
+		query.delete()
+		menu.clearWindow()
 	elif opc == 6:
+		menu.clearfast()
+		query.mod()
+		menu.clearWindow()
+	elif opc == 7:
 		print("Salir")
-		library.clearWindow
+		menu.clearWindow()
 		break
 	else:
+		menu.clearfast()
 		print("No ha introducido un número que se corresponda con las opciones, vuelva a intentarlo de nuevo")
-		library.clearWindow
+		menu.clearWindow()
