@@ -13,7 +13,7 @@ while True:
 		--------------------- Menú ---------------------
 		1º Introducir unas credenciales nuevas
 		2º Consultar credenciales por Servicio
-		3º Consultar credenciales por correo electrónico
+		3º Consultar credenciales por E-mail
 		4º Consultar credenciales por Usuario
 		5º Eliminar credenciales
 		6º Modificar credenciales
