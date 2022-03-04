@@ -1,4 +1,4 @@
-import mysql.connector,os,getpass,ipaddress
+import mysql.connector,os,getpass
 
 def login():
     global dbhost 

@@ -34,7 +34,7 @@ def addnew():
     TipoServicio = input("Introduzca el tipo de servicio: ")
     Servicio = input("Introduzca el nombre de la aplicación: ")
     Email = input("Introduzca el correo usado en el sitio web o aplicación: ")
-    check = validate_email(Email, check_mx=True, verify=True)
+    validate_email(Email, check_mx=True, verify=True)
     Users = input("Introduzca el nombre del usuario: ")
     Passwd = getpass.getpass("Introduzca la contraseña correspondiente a " + Users + " en "+ Servicio)
     if (TipoServicio and Servicio and Email and Users and Passwd) is not None:
