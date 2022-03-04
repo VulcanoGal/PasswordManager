@@ -19,7 +19,7 @@ conection = login()
 
     
 def createDB():
-    initDB = connect
+    initDB = conection
     cursor = initDB.cursor()
     createDB = "CREATE DATABASE IF NOT EXISTS PasswdMgrDB;"
     useDB = " USE PasswdMgrDB;"
