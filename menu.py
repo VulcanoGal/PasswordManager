@@ -1,3 +1,4 @@
+from sqlite3 import connect
 import mysql.connector,os,getpass
 
 def login():
@@ -18,7 +19,7 @@ conection = login()
 
     
 def createDB():
-    initDB = mysql.connector.connect(host = 'localhost', user='root', password='abc123.', port=3306)
+    initDB = connect
     cursor = initDB.cursor()
     createDB = "CREATE DATABASE IF NOT EXISTS PasswdMgrDB;"
     useDB = " USE PasswdMgrDB;"
