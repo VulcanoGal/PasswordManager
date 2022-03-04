@@ -1,17 +1,19 @@
 #Importamos el conector MySQL para que este script pueda comunicarse con el server MySQL que instalamos previamente, junto con otras librerías necesarias para mantener limpio
 # y legible este código
 
+from encriptacion import genera_clave
 import menu, query
 
 print('¡Hola, Bienvenido a Password Manager!')
 #Accedemos a nuestra librería de funciones para crear una nueva tabla
+genera_clave()
 menu.createDB()
 while True:
 	print("""
 		--------------------- Menú ---------------------
 		1º Introducir unas credenciales nuevas
 		2º Consultar credenciales por Servicio
-		3º Consultar credenciales por correo electrónico
+		3º Consultar credenciales por E-mail
 		4º Consultar credenciales por Usuario
 		5º Eliminar credenciales
 		6º Modificar credenciales

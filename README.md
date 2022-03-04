@@ -1,36 +1,33 @@
-# PasswordManager
- Password Manager es un administrador de contraseñas seguro que le ayudará en la tarea de mantener sus credenciales seguras sin tener que memorizarlas todas.
+# <center> PasswordManager </center>
+   Password Manager es un administrador de contraseñas seguro que le ayudará en la tarea de mantener sus credenciales seguras sin tener que memorizarlas todas.  
+   Además, estas contraseñas estarán cifradas mediante una clave privada que deberá guardar, para que así nadie pueda saber sus contraseñas.
 
-  ## Pre-requisitos
-   - [MYSQL] Con este programa, se trabajará en MySQL.
+  ## <center> Pre-requisitos </center>
+   - [MYSQL] Con este script, se puede  en MySQL.
       * Para descargarlo en Windows, deberá acceder a la siguiente página y escoger la opción más adecuada para su equipo, y proceder a la instalación.
       * En caso de ser una distriución linux, escoja una de las opciónes que aparecen en la página dependiento del administrador de paquetes o sistema operativo que esté usando. 
-
-   - [Python] El programa está escrito en el lenguaje Python, por lo que necesita instalarlo para que su equipo sea capaz de ejecutarlo.
- ## Funcionamiento
-   La primera vez que se ejecute el script, le pedirá que escriba una contraseña maestra la cual será necesaria a partir de ese momento para entrar en el programa. 
-   El programa guarda sus contraseñas al igual que su nombre de usuario, nombre y enlace de las páginas o servicios a utilizar, para que sea más facil buscar y/o filtrar.
-   Todos esos datos serán guardados en una BBDD local, la cual no tendrá acceso a internet, y además como medida de protección, las contraseñas serán hasheadas dentro de la BBDD, para evitar que cualquiera pueda descubrirlas.
- ## Instalación
-   Primero de todo vamos a instalar python, para ello en caso de usar Windows basta con usar el instalador .exe que Python ofrece.
-   Sin embargo, si usamos una distribución Linux (Ubuntu, Debian, Manjaro, Arch Linux, Fedora, SUSE ...) lo haremos mediante terminal.
+      * También puedes usar una BBDD externa a la cual poder conectarse
+   - [MariaDB] El conector también es disponible con MariaDB.
+      * Para descargarlo en Windows, deberá acceder a la siguiente página y escoger la opción más adecuada para su equipo, y proceder a la instalación.
+      * En caso de ser una distriución linux, escoja una de las opciónes que aparecen en la página dependiento del administrador de paquetes o sistema operativo que esté usando. 
+      * También puedes usar una BBDD externa a la cual poder conectarse
+   - [Python] El programa está escrito en el lenguaje Python, por lo que necesita instalarlo para que su equipo sea capaz de ejecutarlo. Además de esto habrá una serie de plugins que deberá instalar para que el programa pueda funcionar sin problemas. Normalmente los equipos Linux ya vienen con Python instalado por defecto, pero en caso de no tenerlo / no estar actualizado, puede clicar en "Python" para dirigirse a la página y seguir la guía de instalación.
+# <center> Funcionamiento </center>
+   El script principal ( main.py) será el menú por el cual manejará la Base de Datos. Es el único script ejecutable que le dará una pequeña interfaz por terminal para realizar las consultas a la BBDD.  
+   Las opciones disponibles son las siguientes:
+   - Introducir unas credenciales nuevas
+   - Consultar credenciales por Servicio
+   - Consultar credenciales por E-mail
+   - Consultar credenciales por Usuario
+   - Eliminar credenciales
+   - Modificar credenciales
    
-   La 'x' representa la versión de python, por lo que es recomendable comprobar primero que versión instalar y luego cambiar la letra por la versión.
-   -Ubuntu/Debian (apt manager)
-   ```sh
-      sudo apt install software-properties-common
-      sudo add-apt-repository ppa:deadsnakes/ppa
-      sudo apt install python3.x
-   ```
-  -openSUSE (zypper)
-   ```sh
-      sudo zypper ar http://download.opensuse.org/repositories/devel:/languages:/python:/Factory/openSUSE_12.2/devel:languages:python:Factory.repo
-   ```
-   -Manjaro/Arch Linux (pacman)
-   ```sh
-      sudo pacman -S python
-   ```
+# <center> Instalación de plugins </center>
+   **ATENCIÓN:**
+   En caso de no instalar los plugins, el programa **NO FUNCIONARÁ**.  
 
+   Antes de iniciar el programa, el usuario deberá consultar el archivo requeriments.txt, en el cual estarán listados los plugins necesarios para le funcionamiento correcto, así como los comandos a ejecutar para instalar esos plugins en caso de no saber como.
 
 [MYSQL]: <https://dev.mysql.com/downloads/mysql/>
 [Python]: <https://www.python.org/downloads/>
+[MariaDB]: <https://www.mariadbtutorial.com/getting-started/install-mariadb/>

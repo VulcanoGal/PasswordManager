@@ -1,9 +1,13 @@
 from cryptography.fernet import Fernet
+import os
  
 def genera_clave():
     clave = Fernet.generate_key()
     with open("clave.key","wb") as archivo_clave:
-        archivo_clave.write(clave)
+        if os.path.isfile('clave.key'):
+            print("OK")
+        else:
+            archivo_clave.write(clave)
 
 
 def cargar_clave():

@@ -5,7 +5,7 @@ tabla = PrettyTable()
 
 def modifyDBQueries(query):
     if query is not None:
-        conn = menu.start()
+        conn = menu.conection
         cursor = conn.cursor()
         cursor.execute ( * query)
         conn.commit()
@@ -15,7 +15,7 @@ def modifyDBQueries(query):
 def selectQueries(values, Type):
     if values is not None:
         query = ("SELECT * FROM PasswordDBClient where "+ Type +" = %s")
-        conn = menu.start()
+        conn = menu.conection
         cursor = conn.cursor()
         cursor.execute (query,(values))
         res = cursor.fetchall()      
@@ -33,10 +33,8 @@ def addnew():
     print("Introduzca los siguientes datos: ")
     TipoServicio = input("Introduzca el tipo de servicio: ")
     Servicio = input("Introduzca el nombre de la aplicación: ")
-    while check is False:
-        Email = input("Introduzca el correo usado en el sitio web o aplicación: ")
-        check = validate_email(Email, check_mx=True, verify=True)
-
+    Email = input("Introduzca el correo usado en el sitio web o aplicación: ")
+    validate_email(Email, check_mx=True, verify=True)
     Users = input("Introduzca el nombre del usuario: ")
     Passwd = getpass.getpass("Introduzca la contraseña correspondiente a " + Users + " en "+ Servicio)
     if (TipoServicio and Servicio and Email and Users and Passwd) is not None:
@@ -103,7 +101,7 @@ def mod():
     if ModService and ModUser is not None:
         qcheck = ("SELECT * FROM PasswordDBClient WHERE Servicio = %s and Usuario = %s",(ModService.capitalize(), ModUser.capitalize()))
         if qcheck is not None:
-            conn = menu.start()
+            conn = menu.conection
             cursor = conn.cursor()
             cursor.execute( * qcheck)
             cursor.fetchall()
