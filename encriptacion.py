@@ -27,5 +27,4 @@ def decrypt(a):
     f = Fernet(clave)
     mensaje = a.encode('utf-8')
     desencriptado = f.decrypt(mensaje).decode('utf-8')
-    print(desencriptado)
     return desencriptado

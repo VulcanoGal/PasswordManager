@@ -85,6 +85,7 @@ def delete():
     if prev == 1:
         DelService = input("Introduzca el nombre del servicio en el cual eliminar el usuario: ")
         DelEmail = input("Introduzca el correo del usuario a eliminar de "+ DelService +": ")
+        validate_email(DelEmail, check_mx=True, verify=True)
         DelUser = input("Introduzca el nombre de ese usuario: ")
         if DelService and DelEmail and DelUser is not None:
             query = ("DELETE FROM PasswordDBClient WHERE Servicio = %s and Email = %s and Usuario = %s", (DelService.capitalize(), DelEmail, DelUser,))
@@ -112,10 +113,8 @@ def mod():
             else :
                 TipoServicio = input("Introduzca el tipo de servicio: ")
                 Servicio = input("Introduzca el nombre de la aplicación: ")
-                while check is False:
-                    Email = input("Introduzca el correo usado en el sitio web o aplicación: ")
-                    check = validate_email(Email, check_mx=True, verify=True)
-
+                Email = input("Introduzca el correo usado en el sitio web o aplicación: ")
+                validate_email(Email, check_mx=True, verify=True)
                 Users = input("Introduzca el nombre del usuario: ")
                 Passwd = getpass.getpass("Introduzca la contraseña correspondiente a " + Users + " en "+ Servicio)
                 if (TipoServicio and Servicio and Email and Users and Passwd) is not None:

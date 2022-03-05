@@ -22,30 +22,29 @@ def createDB():
     cursor = initDB.cursor()
     createDB = "CREATE DATABASE IF NOT EXISTS " + dbname + ";"
     useDB = " USE " + dbname + ";"
-    createDBTable = "CREATE TABLE IF NOT EXISTS PasswordDBClient (Servicio varchar(255), Email varchar(255), Usuario varchar(255), Contraseña varchar(255), TipoServicio varchar(255))"
-    createMasterTable = "CREATE TABLE IF NOT EXISTS MasterPasswd (Password varchar(255))"
+    createDBTable = "CREATE TABLE IF NOT EXISTS PasswordDBClient (Servicio varchar(255), Email varchar(255), Usuario varchar(255), Contraseña varchar(999), TipoServicio varchar(255));"
+    createMasterTable = "CREATE TABLE IF NOT EXISTS MasterPasswd (Password varchar(999))"
     queryMasterPasswd = "SELECT * FROM MasterPasswd"
     cursor.execute(createDB)
     cursor.execute(useDB)
     cursor.execute(createDBTable)
     cursor.execute(createMasterTable)
     cursor.execute(queryMasterPasswd)
-    checkMasterPasswd = cursor.fetchall()
+    checkMasterPasswd = cursor.fetchone()
     if cursor.rowcount != 1:
         newMasterPasswd = getpass.getpass("No tiene una contraseña maestra, vamos a añadir una: ")
         values = encriptacion.encrypt(newMasterPasswd)
-        query = ("INSERT INTO MasterPasswd (Password) VALUES (%s)",(values))
+        query = ("INSERT INTO MasterPasswd (Password) VALUES (%s)",(values,))
         cursor.execute( * query)
+        initDB.commit()
     else:
-        masterpasswd = input(" Introduce la contraseña maestra:")
-        checkMasterPasswd = encriptacion.decrypt(checkMasterPasswd)
-        print(checkMasterPasswd)
+        masterpasswd = getpass.getpass("Introduce la contraseña maestra: ")
+        checkMasterPasswd = encriptacion.decrypt(checkMasterPasswd[0])
         if masterpasswd != checkMasterPasswd:
             print("La contraseña maestra es incorrecta, saliendo...")
         else:
             print("Contraseña Maestra OK")
-            
-    initDB.close()
+
     cursor.close()
 
 
