@@ -3,6 +3,7 @@ from prettytable import PrettyTable
 from validate_email import validate_email
 tabla = PrettyTable()
 
+
 def modifyDBQueries(query):
     if query is not None:
         conn = menu.conection
