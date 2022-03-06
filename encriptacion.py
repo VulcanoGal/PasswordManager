@@ -2,16 +2,16 @@ from cryptography.fernet import Fernet
 import os
  
 def genera_clave():
-    clave = Fernet.generate_key()
-    with open("clave.key","wb") as archivo_clave:
-        if os.path.isfile('clave.key'):
-            print("OK")
-        else:
+    if os.path.isfile('clave.key') and os.path.getsize('clave.key') > 0:
+         print("OK")
+    else:
+        with open("clave.key","w") as archivo_clave:
+            clave = Fernet.generate_key().decode()
             archivo_clave.write(clave)
 
 
 def cargar_clave():
-    return open("clave.key","rb").read()
+    return open("clave.key","r").read()
 
 
 def encrypt(a):
@@ -27,5 +27,4 @@ def decrypt(a):
     f = Fernet(clave)
     mensaje = a.encode('utf-8')
     desencriptado = f.decrypt(mensaje).decode('utf-8')
-    print(desencriptado)
     return desencriptado
