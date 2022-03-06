@@ -21,12 +21,12 @@
    - Consultar credenciales por Usuario
    - Eliminar credenciales
    - Modificar credenciales
-   
+
 # <center> Instalación de plugins </center>
    **ATENCIÓN:**
    En caso de no instalar los plugins, el programa **NO FUNCIONARÁ**.  
 
-   Antes de iniciar el programa, el usuario deberá consultar el archivo requeriments.txt, en el cual estarán listados los plugins necesarios para le funcionamiento correcto, así como los comandos a ejecutar para instalar esos plugins en caso de no saber como.
+   Antes de iniciar el programa, el usuario deberá consultar el archivo requeriments.md, en el cual estarán listados los plugins necesarios para le funcionamiento correcto, así como los comandos a ejecutar para instalar esos plugins en caso de no saber como.
 
 [MYSQL]: <https://dev.mysql.com/downloads/mysql/>
 [Python]: <https://www.python.org/downloads/>
