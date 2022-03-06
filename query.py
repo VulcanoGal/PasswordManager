@@ -88,9 +88,18 @@ def delete():
         validate_email(DelEmail, check_mx=True, verify=True)
         DelUser = input("Introduzca el nombre de ese usuario: ")
         if DelService and DelEmail and DelUser is not None:
-            query = ("DELETE FROM PasswordDBClient WHERE Servicio = %s and Email = %s and Usuario = %s", (DelService.capitalize(), DelEmail, DelUser,))
-            modifyDBQueries(query)
-            exit
+            query1 = ("SELECT * FROM PasswordDBClient WHERE Servicio = %s and Usuario = %s and Email = %s",(DelService.capitalize(), DelUser, DelEmail))
+            query2 = ("DELETE FROM PasswordDBClient WHERE Servicio = %s and Email = %s and Usuario = %s", (DelService.capitalize(), DelEmail, DelUser,))
+            conn = menu.conection
+            cursor = conn.cursor()
+            cursor.execute( * query1)
+            cursor.fetchall()
+            if cursor.rowcount != 1:
+                print("Error, no hay una entrada en la BBDD que coincida con lo introducido, vuelva a intentarlo ")
+                exit
+            else :
+                modifyDBQueries(query2)
+                exit
         else:
             print("Error")
     else:

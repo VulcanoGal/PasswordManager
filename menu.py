@@ -42,6 +42,7 @@ def createDB():
         checkMasterPasswd = encriptacion.decrypt(checkMasterPasswd[0])
         if masterpasswd != checkMasterPasswd:
             print("La contraseña maestra es incorrecta, saliendo...")
+            exit()
         else:
             print("Contraseña Maestra OK")
 
