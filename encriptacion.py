@@ -9,7 +9,7 @@ def genera_clave():
             clave = Fernet.generate_key().decode()
             archivo_clave.write(clave)
 
-
+# Cargar clave
 def cargar_clave():
     return open("clave.key","r").read()
 
