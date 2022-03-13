@@ -13,7 +13,7 @@ def genera_clave():
 def cargar_clave():
     return open("clave.key","r").read()
 
-
+# Encriptar
 def encrypt(a):
     clave = cargar_clave()
     f = Fernet(clave)
