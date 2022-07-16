@@ -10,6 +10,10 @@ def login():
     dbpassword = getpass.getpass("Introduzca la contraseña del usuario " + dbuser + " en la BBDD: ")
     dbport = int(input("Introduzca el número del puerto de la BBDD: "))
     initDB = mysql.connector.connect(host=dbhost, user=dbuser, password=dbpassword, port=dbport)
+    if initDB is None:
+    # No existe el usuario en cuestión
+        initDB = False
+
     return initDB
 
 conection = login()
@@ -20,13 +24,11 @@ def createDB():
     dbname = input("Introduzca el nombre de la BBDD: ")
     initDB = conection
     cursor = initDB.cursor()
-    createDB = "CREATE DATABASE IF NOT EXISTS " + dbname + ";"
-    useDB = " USE " + dbname + ";"
     createDBTable = "CREATE TABLE IF NOT EXISTS PasswordDBClient (Servicio varchar(255), Email varchar(255), Usuario varchar(255), Contraseña varchar(999), TipoServicio varchar(255));"
     createMasterTable = "CREATE TABLE IF NOT EXISTS MasterPasswd (Password varchar(999))"
     queryMasterPasswd = "SELECT * FROM MasterPasswd"
-    cursor.execute(createDB)
-    cursor.execute(useDB)
+    cursor.execute("CREATE DATABASE IF NOT EXISTS %(database)s;",{'database': dbname})
+    cursor.execute(" USE %(database)s;",{'database': dbname})
     cursor.execute(createDBTable)
     cursor.execute(createMasterTable)
     cursor.execute(queryMasterPasswd)
