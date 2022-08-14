@@ -1,4 +1,5 @@
 # <center> PasswordManager </center>
+[![CodeFactor](https://www.codefactor.io/repository/github/vulcanogal/passwordmanager/badge/main)](https://www.codefactor.io/repository/github/vulcanogal/passwordmanager/overview/main)
    Password Manager es un administrador de contraseñas seguro que le ayudará en la tarea de mantener sus credenciales seguras sin tener que memorizarlas todas.  
    Además, estas contraseñas estarán cifradas mediante una clave privada que deberá guardar, para que así nadie pueda saber sus contraseñas.
 
